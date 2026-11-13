@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck8l1318rw6no"]
+
+[ext_resource type="Script" uid="uid://4vjrcy85aobb" path="res://scripts/trap.gd" id="1_62q8x"]
+[ext_resource type="Texture2D" uid="uid://cmscrsnesy5xs" path="res://assets/textures/other/Saw.png" id="1_npg1n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62q8x"]
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_aucmg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_62q8x"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saw/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 7]
+}
+
+[sub_resource type="Animation" id="Animation_1sb0t"]
+resource_name = "spining"
+
+[sub_resource type="Animation" id="Animation_tk2q1"]
+resource_name = "spinning"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tk2q1"]
+_data = {
+&"RESET": SubResource("Animation_aucmg"),
+&"spin": SubResource("Animation_62q8x"),
+&"spining": SubResource("Animation_1sb0t"),
+&"spinning": SubResource("Animation_tk2q1")
+}
+
+[node name="trap" type="Node2D" groups=["traps"]]
+script = ExtResource("1_62q8x")
+
+[node name="Saw" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saw"]
+rotation = -2.12407
+shape = SubResource("CircleShape2D_62q8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Saw"]
+rotation = 0.822315
+texture = ExtResource("1_npg1n")
+hframes = 8
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tk2q1")
+}
+autoplay = "spin"
+
+[connection signal="body_entered" from="Saw" to="." method="_on_saw_body_entered"]

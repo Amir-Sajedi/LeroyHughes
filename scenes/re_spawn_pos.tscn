@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://d22pgml2alvlw"]
+
+[node name="Re_Spawn_pos" type="Marker2D"]
+position = Vector2(14, 17)

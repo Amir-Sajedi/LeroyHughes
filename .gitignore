@@ -1,0 +1,17 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Exported builds and packaged releases
+/LeroyHughes/
+/LeroyHughes.exe
+/LH-Mahna.zip
+/ex/
+/LeroyHughesv1.3.0apk(stable)/
+*.apk
+*.aab
+*.pck
+*.zip
+
+# Signing keys
+*.keystore

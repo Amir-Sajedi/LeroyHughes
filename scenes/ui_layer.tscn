@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://csabucepd1t3j"]
+
+[ext_resource type="Script" uid="uid://cc6yfdmatuf7f" path="res://scripts/ui_layer.gd" id="1_6av8n"]
+[ext_resource type="PackedScene" uid="uid://v5ltjelbvjv1" path="res://scenes/hud.tscn" id="1_w83ab"]
+[ext_resource type="PackedScene" uid="uid://kgm76hq5f7vv" path="res://scenes/end_screen.tscn" id="3_6syxi"]
+[ext_resource type="PackedScene" path="res://scenes/touch_controls.tscn" id="4_touch"]
+
+[node name="UILayer" type="CanvasLayer"]
+script = ExtResource("1_6av8n")
+
+[node name="HUD" parent="." instance=ExtResource("1_w83ab")]
+
+[node name="TouchControls" parent="." instance=ExtResource("4_touch")]
+
+[node name="Win_screen" parent="." instance=ExtResource("3_6syxi")]

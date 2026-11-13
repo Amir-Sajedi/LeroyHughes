@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://v5ltjelbvjv1"]
+
+[ext_resource type="Script" uid="uid://bopq4lyylkuuc" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://v4uf77sjeuyo" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://c8ap5qsspp8c" path="res://assets/textures/additional_pics/timer_pixelated_png.png" id="3_5ysmq"]
+
+[sub_resource type="Theme" id="Theme_oo0fn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fi6k"]
+font = ExtResource("2_5ysmq")
+font_size = 12
+font_color = Color(0.611765, 0.862745, 0.972549, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.650609, 0.621321, 0.990988, 0)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oo0fn")
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 220.0
+offset_top = 5.0
+offset_right = 286.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_oo0fn")
+text = "Time: 9999"
+label_settings = SubResource("LabelSettings_6fi6k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saving" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 21.0
+text = "Saving..."
+label_settings = SubResource("LabelSettings_6fi6k")
+vertical_alignment = 1
+
+[node name="SavingTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="TimerPixelatedPng" type="Sprite2D" parent="."]
+position = Vector2(208.375, 14.25)
+scale = Vector2(0.115099, 0.113158)
+texture = ExtResource("3_5ysmq")

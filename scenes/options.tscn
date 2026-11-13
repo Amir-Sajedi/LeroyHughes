@@ -1,0 +1,141 @@
+[gd_scene load_steps=11 format=3 uid="uid://dt07p5rxcsmrd"]
+
+[ext_resource type="Script" uid="uid://dibd400iubn5h" path="res://scripts/options.gd" id="1_2iy26"]
+[ext_resource type="FontFile" uid="uid://v4uf77sjeuyo" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_yjkok"]
+[ext_resource type="Texture2D" uid="uid://bpb3yius0skhy" path="res://assets/textures/additional_pics/start menu.png" id="2_2iy26"]
+[ext_resource type="AudioStream" uid="uid://dvb7risfy6dch" path="res://assets/audio/click-21156.mp3" id="4_kv8mn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kv8mn"]
+font = ExtResource("1_yjkok")
+font_color = Color(1, 1, 0.027451, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.54902, 0.603922, 0.890196, 0.427451)
+shadow_offset = Vector2(1, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yjkok"]
+font_size = 8
+font_color = Color(1, 1, 1, 0.137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kv8mn"]
+bg_color = Color(0.835294, 0.129412, 0.156863, 1)
+border_width_bottom = 5
+border_color = Color(0.524598, 0.0569312, 0.0787925, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iy26"]
+bg_color = Color(0.920919, 0.9208, 1.54018e-06, 1)
+border_width_bottom = 5
+border_color = Color(0.251864, 0.243571, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjkok"]
+bg_color = Color(0.320707, 0.253846, 0.53289, 1)
+border_width_bottom = 5
+border_color = Color(0.21642, 0.166258, 0.372585, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_kv8mn"]
+Button/colors/font_color = Color(0.0705882, 0.0901961, 0.239216, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0, 1)
+Button/colors/font_pressed_color = Color(0.921569, 0.921569, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_kv8mn")
+Button/styles/normal = SubResource("StyleBoxFlat_2iy26")
+Button/styles/pressed = SubResource("StyleBoxFlat_yjkok")
+
+[node name="Options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2iy26")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.071, 0.09, 0.239, 0.646)
+
+[node name="Creator" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 91.0
+offset_right = 435.0
+offset_bottom = 223.0
+text = "designed by Amir sajedi
+6/5/2025"
+label_settings = SubResource("LabelSettings_kv8mn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Desc2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 3.0
+offset_right = 427.0
+offset_bottom = 135.0
+text = "leroy hughes is a simple 2d platformer game in memory of two of the best Aeropsapce engineers, Leroy Grumman and Howard Hughes!"
+label_settings = SubResource("LabelSettings_kv8mn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StartMenu" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(240.313, 135.187)
+scale = Vector2(0.250326, 0.251505)
+texture = ExtResource("2_2iy26")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.5
+offset_top = -1.0
+offset_right = 68.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "got u here elinka!"
+label_settings = SubResource("LabelSettings_yjkok")
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -72.0
+offset_right = 59.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kv8mn")
+text = "main menu"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kv8mn")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

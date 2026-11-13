@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/touch_controls.gd" id="1_touch"]
+[ext_resource type="Texture2D" uid="uid://bryo7hiur8si4" path="res://touch_controls/dpad_element_west.png" id="2_west"]
+[ext_resource type="Texture2D" uid="uid://dsoxhc17r84mc" path="res://touch_controls/dpad_element_east.png" id="3_east"]
+[ext_resource type="Texture2D" uid="uid://srqwer2vmhcx" path="res://touch_controls/dpad_element_south.png" id="4_jump"]
+[ext_resource type="Texture2D" uid="uid://wbau2cr77uop" path="res://touch_controls/menu.png" id="5_menu"]
+[ext_resource type="FontFile" uid="uid://v4uf77sjeuyo" path="res://assets/fonts/Kenney Pixel Square.ttf" id="6_font"]
+[ext_resource type="Script" path="res://scripts/touch_icon_button.gd" id="7_icon"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_move"]
+radius = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jump"]
+radius = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_menu"]
+size = Vector2(128, 64)
+
+[node name="TouchControls" type="Node2D"]
+visible = false
+script = ExtResource("1_touch")
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(54, 222)
+scale = Vector2(0.85, 0.85)
+script = ExtResource("7_icon")
+icon = ExtResource("2_west")
+shape = SubResource("CircleShape2D_move")
+shape_visible = false
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(122, 222)
+scale = Vector2(0.85, 0.85)
+script = ExtResource("7_icon")
+icon = ExtResource("3_east")
+shape = SubResource("CircleShape2D_move")
+shape_visible = false
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2(432, 222)
+scale = Vector2(0.85, 0.85)
+script = ExtResource("7_icon")
+icon = ExtResource("4_jump")
+flip_vertical = true
+shape = SubResource("CircleShape2D_jump")
+shape_visible = false
+
+[node name="Menu" type="TouchScreenButton" parent="."]
+position = Vector2(404, 12)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_menu")
+shape = SubResource("RectangleShape2D_menu")
+shape_visible = false
+
+[node name="MenuLabel" type="Label" parent="."]
+offset_left = 404.0
+offset_top = 12.0
+offset_right = 468.0
+offset_bottom = 44.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.247059, 1)
+theme_override_colors/font_outline_color = Color(0.0784314, 0.0549022, 0.160784, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 12
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccheqtykgepf8"]
+
+[ext_resource type="Texture2D" uid="uid://bauk40wwnkv8q" path="res://assets/textures/additional_pics/Plane.png" id="1_h3tyq"]
+[ext_resource type="Script" uid="uid://dk6kmuyopy8we" path="res://scenes/plane_animation.gd" id="1_vdusu"]
+
+[sub_resource type="Animation" id="Animation_h3tyq"]
+resource_name = "right_to_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plane:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plane:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdusu"]
+_data = {
+&"right_to_left": SubResource("Animation_h3tyq")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vdusu"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(100, 0, 0)
+direction = Vector3(100, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+
+[node name="Plane_animation" type="Node2D"]
+script = ExtResource("1_vdusu")
+
+[node name="Plane" type="Sprite2D" parent="."]
+position = Vector2(524, 27)
+scale = Vector2(0.285156, 0.263672)
+texture = ExtResource("1_h3tyq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plane"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_vdusu")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(550, 27)
+amount = 1024
+amount_ratio = 0.1
+randomness = 1.0
+trail_lifetime = 0.01
+process_material = SubResource("ParticleProcessMaterial_vdusu")

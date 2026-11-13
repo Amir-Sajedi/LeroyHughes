@@ -1,0 +1,362 @@
+[gd_scene load_steps=25 format=3 uid="uid://dua0l62dkgrx3"]
+
+[ext_resource type="Script" uid="uid://dxf312jhr3jpl" path="res://scripts/start_menu.gd" id="1_m7x51"]
+[ext_resource type="FontFile" uid="uid://v4uf77sjeuyo" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_thu50"]
+[ext_resource type="PackedScene" uid="uid://djqx86b51rwgi" path="res://scenes/parallax_background.tscn" id="2_m7x51"]
+[ext_resource type="AudioStream" uid="uid://gclqhb5tlto6" path="res://assets/audio/menu_music.mp3" id="4_h61rw"]
+[ext_resource type="AudioStream" uid="uid://dvb7risfy6dch" path="res://assets/audio/click-21156.mp3" id="5_fcv5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
+bg_color = Color(0.443137, 0.380392, 0.741176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcv5n"]
+bg_color = Color(0.967884, 0.0072444, 5.77569e-07, 1)
+border_width_bottom = 5
+border_color = Color(0.360408, 0.149536, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h61rw"]
+bg_color = Color(0.443137, 0.380392, 0.741176, 1)
+border_width_bottom = 5
+border_color = Color(0.262745, 0.211765, 0.478431, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.2625, 0.210293, 0.477821, 1)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxjfj"]
+bg_color = Color(0.250874, 0.000696933, 0.437504, 1)
+border_width_bottom = 5
+border_color = Color(0.10347, 0.000144669, 0.200874, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v6gu"]
+
+[sub_resource type="Theme" id="Theme_m7x51"]
+Button/colors/font_color = Color(100, 0.448, 1, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.945098, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 0.0823529, 1)
+Button/colors/icon_normal_color = Color(0.917647, 0.972549, 0.113725, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_m7x51")
+Button/styles/hover = SubResource("StyleBoxFlat_fcv5n")
+Button/styles/normal = SubResource("StyleBoxFlat_h61rw")
+Button/styles/pressed = SubResource("StyleBoxFlat_nxjfj")
+Button/styles/pressed_mirrored = SubResource("StyleBoxFlat_4v6gu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4qax"]
+bg_color = Color(0.443137, 0.380392, 0.741176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5byqq"]
+bg_color = Color(0.654902, 0.00392157, 0.105882, 1)
+border_width_bottom = 5
+border_color = Color(0.459034, 0.00177373, 0.0614778, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apowk"]
+bg_color = Color(0.654902, 0.00392157, 0.105882, 1)
+border_width_bottom = 5
+border_color = Color(0.247263, 0.000502841, 0.0182427, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e58y3"]
+bg_color = Color(0.443137, 0.380392, 0.741176, 1)
+border_width_bottom = 5
+border_color = Color(0.186477, 0.146684, 0.352374, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1kog"]
+bg_color = Color(0.262745, 0.211765, 0.478431, 1)
+border_width_bottom = 5
+border_color = Color(0.179335, 0.140658, 0.340439, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_5byqq"]
+/styles/normal = SubResource("StyleBoxFlat_u4qax")
+Button/colors/font_color = Color(1, 0.447059, 1, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.0705882, 1)
+Button/colors/font_pressed_color = Color(0.876007, 0.876007, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_5byqq")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_apowk")
+Button/styles/normal = SubResource("StyleBoxFlat_e58y3")
+Button/styles/pressed = SubResource("StyleBoxFlat_b1kog")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h61rw"]
+font = ExtResource("1_thu50")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+shadow_size = 10
+shadow_color = Color(0.0588235, 0.376471, 0.854902, 0.545098)
+shadow_offset = Vector2(1, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnuwp"]
+bg_color = Color(0.6, 0.972549, 0.301961, 1)
+border_width_bottom = 5
+border_color = Color(0.26529, 0.452163, 0.112737, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egh8s"]
+bg_color = Color(0.443137, 0.380392, 0.741176, 1)
+border_width_bottom = 5
+border_color = Color(0.262745, 0.211765, 0.478431, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruo1u"]
+bg_color = Color(0.192157, 0.14902, 0.360784, 1)
+border_width_bottom = 5
+border_color = Color(0.122822, 0.091435, 0.244767, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_b1kog"]
+Button/colors/font_color = Color(1, 0.447059, 1, 1)
+Button/colors/font_hover_color = Color(0.402412, 0.00181472, 0.885979, 1)
+Button/colors/font_pressed_color = Color(0.568627, 1, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_vnuwp")
+Button/styles/normal = SubResource("StyleBoxFlat_egh8s")
+Button/styles/pressed = SubResource("StyleBoxFlat_ruo1u")
+
+[sub_resource type="LabelSettings" id="LabelSettings_difficulty_title"]
+font = ExtResource("1_thu50")
+font_size = 28
+font_color = Color(1, 0.94902, 0.247059, 1)
+outline_size = 6
+outline_color = Color(0.0784314, 0.054902, 0.160784, 1)
+shadow_size = 6
+shadow_color = Color(0.411765, 0.0431373, 0.580392, 0.7)
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_difficulty_hint"]
+font = ExtResource("1_thu50")
+font_size = 12
+font_color = Color(0.85098, 0.85098, 1, 1)
+outline_size = 4
+outline_color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
+[node name="Start_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -15.0
+offset_right = -5.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7x51")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 88.0
+offset_right = 95.0
+offset_bottom = 126.0
+grow_horizontal = 2
+theme = SubResource("Theme_m7x51")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "CONTINUE"
+
+[node name="NewGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 132.0
+offset_right = 95.0
+offset_bottom = 170.0
+grow_horizontal = 2
+theme = SubResource("Theme_m7x51")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "NEW GAME"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -50.0
+offset_right = 95.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_5byqq")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "Leroy hughes!"
+label_settings = SubResource("LabelSettings_h61rw")
+horizontal_alignment = 1
+
+[node name="BG" parent="." instance=ExtResource("2_m7x51")]
+Bg_speed = 120
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 176.0
+offset_right = 95.0
+offset_bottom = 214.0
+grow_horizontal = 2
+theme = SubResource("Theme_b1kog")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "Options
+"
+
+[node name="DifficultyOverlay" type="Control" parent="."]
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="DifficultyOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.054902, 0.0313726, 0.117647, 0.9)
+
+[node name="Title" type="Label" parent="DifficultyOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 26.0
+offset_right = 220.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "CHOOSE YOUR DIFFICULTY"
+label_settings = SubResource("LabelSettings_difficulty_title")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hint" type="Label" parent="DifficultyOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 74.0
+offset_right = 220.0
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "Easy: no timer and fewer traps.
+Hard: the original challenge."
+label_settings = SubResource("LabelSettings_difficulty_hint")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Easy" type="Button" parent="DifficultyOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 128.0
+offset_right = 110.0
+offset_bottom = 166.0
+grow_horizontal = 2
+theme = SubResource("Theme_m7x51")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "EASY"
+
+[node name="Hard" type="Button" parent="DifficultyOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 176.0
+offset_right = 110.0
+offset_bottom = 214.0
+grow_horizontal = 2
+theme = SubResource("Theme_m7x51")
+theme_override_fonts/font = ExtResource("1_thu50")
+text = "HARD"
+
+[node name="NewGameConfirm" type="ConfirmationDialog" parent="."]
+title = "Start a new game?"
+ok_button_text = "New Game"
+dialog_text = "This will overwrite your saved progress.
+Are you sure?"
+
+[node name="Start_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_h61rw")
+volume_db = -18.0
+autoplay = true
+
+[node name="button_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fcv5n")
+
+[connection signal="mouse_entered" from="Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="NewGame" to="." method="_on_new_game_mouse_entered"]
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="DifficultyOverlay/Easy" to="." method="_on_difficulty_mouse_entered"]
+[connection signal="pressed" from="DifficultyOverlay/Easy" to="." method="_on_easy_pressed"]
+[connection signal="mouse_entered" from="DifficultyOverlay/Hard" to="." method="_on_difficulty_mouse_entered"]
+[connection signal="pressed" from="DifficultyOverlay/Hard" to="." method="_on_hard_pressed"]
+[connection signal="confirmed" from="NewGameConfirm" to="." method="_on_new_game_confirmed"]

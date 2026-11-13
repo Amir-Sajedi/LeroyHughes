@@ -1,0 +1,160 @@
+[gd_scene load_steps=12 format=3 uid="uid://kgm76hq5f7vv"]
+
+[ext_resource type="Script" uid="uid://bdc4fyk7wcij3" path="res://scripts/control.gd" id="1_6e1uj"]
+[ext_resource type="Texture2D" uid="uid://cvabbxqh0bca0" path="res://assets/textures/additional_pics/level3_bg.png" id="2_g44xs"]
+[ext_resource type="FontFile" uid="uid://v4uf77sjeuyo" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_jc7ji"]
+[ext_resource type="AudioStream" uid="uid://dvb7risfy6dch" path="res://assets/audio/click-21156.mp3" id="4_87vmq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc7ji"]
+bg_color = Color(0.778333, 1, 0.3, 1)
+border_width_bottom = 5
+border_color = Color(0.479253, 0.643677, 1.54018e-06, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.666667, 0.109804, 0.643137, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
+bg_color = Color(0.847881, 0.175566, 0.185117, 1)
+border_color = Color(0.8, 0.096, 0.096, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e1uj"]
+bg_color = Color(0.427352, 0.575424, 0.986168, 1)
+border_width_bottom = 5
+border_color = Color(0.114986, 0.211339, 0.757637, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.975028, 0.051113, 0.833527, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g44xs"]
+bg_color = Color(0.97, 0.0161667, 0, 1)
+border_width_bottom = 5
+border_color = Color(0.73861, 0.00851652, 9.62615e-08, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.666667, 0.109804, 0.643137, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="Theme" id="Theme_jc7ji"]
+Button/colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+Button/colors/font_hover_color = Color(0.258824, 0.258824, 0.258824, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_jc7ji")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_87vmq")
+Button/styles/normal = SubResource("StyleBoxFlat_6e1uj")
+Button/styles/pressed = SubResource("StyleBoxFlat_g44xs")
+
+[sub_resource type="LabelSettings" id="LabelSettings_87vmq"]
+font = ExtResource("2_jc7ji")
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.427451, 0.576471, 0.984314, 1)
+shadow_offset = Vector2(1, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g44xs"]
+font_size = 12
+font_color = Color(0.84396, 0.84569, 0.912225, 1)
+outline_size = 5
+outline_color = Color(0.0509804, 0.0509804, 0.203922, 1)
+shadow_size = 5
+shadow_color = Color(0.360784, 0.517647, 0.976471, 0.458824)
+shadow_offset = Vector2(1, 2)
+
+[node name="Win_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6e1uj")
+bg = ExtResource("2_g44xs")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g44xs")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -121.0
+offset_right = 79.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_jc7ji")
+theme_override_colors/icon_hover_pressed_color = Color(0.784672, 0.785123, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.608664, 0.43404, 0.0173968, 1)
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 16
+text = "main menu"
+
+[node name="win_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -158.0
+offset_right = 120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "gg champ! "
+label_settings = SubResource("LabelSettings_87vmq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -55.5
+offset_right = 324.0
+offset_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congrats on finishing the leroy hughes!
+you can return to the main menu by pressing the button below "
+label_settings = SubResource("LabelSettings_g44xs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_87vmq")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
